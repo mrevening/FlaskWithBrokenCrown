@@ -1,0 +1,22 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1>Witaj w kwestionarzu Rejsm</h1>
+    <p>Gromadzi on dane z bazy danych MSBase.org oraz umożliwia dodanie twoich statystyk za pomocą formularza.</p>
+  </div>
+
+  <div class="page-header">
+    <h1>Co chcesz teraz zrobić?</h1>
+  </div>
+  <p>
+    <a href="/form" class="btn btn-success" role="button">Uzupelnił formularz</a>
+    <a href="/result" class="btn btn-primary" role="button">Zobacz wyniki</a>
+  </p>
+
+
+{% endblock %}
+

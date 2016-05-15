@@ -1,0 +1,48 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Surowe dane</h1>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Stworzone (data)</th>
+        <th>Płeć</th>
+        <th>Wiek</th>
+        <th>Wiek rozpoczęcia choroby</th>
+        <th>Wiek diagnozy</th>
+        <th>Czas trwania choroby</th>
+        <th>Ostatni wynik EDSS</th>
+        <th>Ostatni kurs MS</th>
+        <th>Liczba nawrotów w ostatnich 12 miesiącach</th>
+        <th>Liczba nawrotów w ostatnich 24 miesiącach</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for element in formdata %}
+    <tr>
+        <td>{{ element.id }}</td>
+        <td>{{ element.created_at }}</td>
+        <td>{{ element.plec }}</td>
+        <td>{{ element.wiek }}</td>
+        <td>{{ element.wiekonset }}</td>
+        <td>{{ element.wiekdiagnosis }}</td>
+        <td>{{ element.czastrwania }}</td>
+        <td>{{ element.edss }}</td>
+        <td>{{ element.lastMS }}</td>
+        <td>{{ element.nawrot12 }}</td>
+        <td>{{ element.nawrot24 }}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
