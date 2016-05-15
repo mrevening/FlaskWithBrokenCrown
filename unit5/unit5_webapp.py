@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -54,10 +56,8 @@ def show_raw():
 #scrapy runspider crawl.py -o ..\..\..\FlaskWithBrokenCrown\unit5\crawl_data.json
 #scrapy runspider ..\..\CrawlingBrokenCrown\dirbot\spiders\crawl.py -o crawl_data2.json
 
-
-
-
 def show_result():
+    os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
     fd_list = db.session.query(Formdata).all()
 
     # Some simple statistics for sample questions
