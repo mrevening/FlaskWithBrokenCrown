@@ -7,6 +7,8 @@ from dirbot import settings
 from dirbot.items import Website
 
 
+
+
 class crawlmycrown(Spider):
     name = "crawlmycrown"
     allowed_domains = ["msbase.org"]
@@ -17,7 +19,7 @@ class crawlmycrown(Spider):
         labels = sel.xpath('//tr[not(@*)]')
         items = []
 
-        open('crawl_data.json', 'w').close()
+    #    open('result.json', 'w').close()
 
         for data in labels:
             item = Website()
@@ -28,11 +30,13 @@ class crawlmycrown(Spider):
         return items
 
 
-process = CrawlerProcess({
-    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-    'FEED_FORMAT': 'json',
-    'FEED_URI': 'result.json'
-})
 
-process.crawl(crawlmycrown)
-process.start() # the script will block here until the crawling is finished
+#process = CrawlerProcess({
+#    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+#    'FEED_FORMAT': 'json',
+ #   'FEED_URI': 'result.json'
+#})
+
+
+#process.crawl(crawlmycrown)
+#process.start() # the script will block here until the crawling is finished

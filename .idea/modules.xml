@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/../CrawlingBrokenCrown/.idea/CrawlingBrokenCrown.iml" filepath="$PROJECT_DIR$/../CrawlingBrokenCrown/.idea/CrawlingBrokenCrown.iml" />
       <module fileurl="file://$PROJECT_DIR$/../FlaskTask/.idea/FlaskTask.iml" filepath="$PROJECT_DIR$/../FlaskTask/.idea/FlaskTask.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/FlaskWithBrokenCrown.iml" filepath="$PROJECT_DIR$/.idea/FlaskWithBrokenCrown.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dirbot4/.idea/dirbot4.iml" filepath="$PROJECT_DIR$/../dirbot4/.idea/dirbot4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dirbot5/.idea/dirbot5.iml" filepath="$PROJECT_DIR$/../dirbot5/.idea/dirbot5.iml" />
     </modules>
   </component>
 </project>

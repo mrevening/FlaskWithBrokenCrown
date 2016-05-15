@@ -53,11 +53,9 @@ def show_raw():
     return render_template('raw.html', formdata=fd)
 
 @app.route("/result")
-#scrapy runspider crawl.py -o ..\..\..\FlaskWithBrokenCrown\unit5\crawl_data.json
-#scrapy runspider ..\..\CrawlingBrokenCrown\dirbot\spiders\crawl.py -o crawl_data2.json
-
 def show_result():
     os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
+
     fd_list = db.session.query(Formdata).all()
 
     # Some simple statistics for sample questions
