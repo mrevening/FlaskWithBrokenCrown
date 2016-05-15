@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/FlaskWithBrokenCrown.iml" filepath="$PROJECT_DIR$/.idea/FlaskWithBrokenCrown.iml" />
       <module fileurl="file://$PROJECT_DIR$/../dirbot4/.idea/dirbot4.iml" filepath="$PROJECT_DIR$/../dirbot4/.idea/dirbot4.iml" />
       <module fileurl="file://$PROJECT_DIR$/../dirbot5/.idea/dirbot5.iml" filepath="$PROJECT_DIR$/../dirbot5/.idea/dirbot5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../flask-json/.idea/flask-json.iml" filepath="$PROJECT_DIR$/../flask-json/.idea/flask-json.iml" />
     </modules>
   </component>
 </project>

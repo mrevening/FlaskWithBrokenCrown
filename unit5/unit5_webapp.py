@@ -1,4 +1,6 @@
 import os
+from pandas import json
+from pprint import pprint
 
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
@@ -55,8 +57,45 @@ def show_raw():
 @app.route("/result")
 def show_result():
     os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
+  #  f = open('result.json', 'r')
+    #data = json.load(f)
+  #  pprint(data)
+    #dane['count']
+  #  f.close()
+
+    with open('result.json') as data_file:
+        data = json.load(data_file)
+
+    my_dict = {}
+    for n in range(10):
+        for m in range(11):
+            key = (n, m)  # creates tuple
+            value = 'foobar'
+            my_dict[key] = value
+    pprint(my_dict)
+
+
+    male =[]
+    #pprint(data)
+    #for el in data:
+     #   male.append(el["plec"])
+    #pprint (male)
+ #   plec = []
+
+  #  for el in dane:
+  #      satisfaction.append(int(el['Male']))
+  #      q1.append(int(el.q1))
+ #       q2.append(int(el.q2))
+
+ #   data = [['Satisfaction', mean_satisfaction], ['Python skill', mean_q1], ['Flask skill', mean_q2]]
+
+  #  return render_template('result.html', data=data)
+
+
 
     fd_list = db.session.query(Formdata).all()
+
+
 
     # Some simple statistics for sample questions
     plec = []

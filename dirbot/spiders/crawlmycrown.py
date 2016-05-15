@@ -16,27 +16,33 @@ class crawlmycrown(Spider):
 
     def parse(self, response):
         sel = Selector(response)
-        labels = sel.xpath('//tr[not(@*)]')
+        labels = sel.xpath('//tr[@class="wc_title"] | //tr[not(@*)] ')
         items = []
-
-    #    open('result.json', 'w').close()
-
+        typ = []
+        open('result.json', 'w').close()
+        n=1
         for data in labels:
             item = Website()
-            item['description'] = data.xpath("td[1]/text()").extract()
+            item['type'] = data.xpath('th[@style="font-weight: bold; text-align:left; padding:5px; font-size:11px;"]/text()').extract()
             item['count'] = data.xpath('td[2]/text()').extract()
-            item['percentage'] = data.xpath('td[3]/text()').extract()
-            items.append(item)
+            if item['count'] != []:
+                item['description'] = data.xpath('td[1]/text()').extract()
+                items.append(item)
+            if item['type'] == []:
+                item['type'] = typ
+            else:
+                typ = item['type']
         return items
 
 
+'''
+process = CrawlerProcess({
+    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+    'FEED_FORMAT': 'json',
+    'FEED_URI': 'result.json'
+})
 
-#process = CrawlerProcess({
-#    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-#    'FEED_FORMAT': 'json',
- #   'FEED_URI': 'result.json'
-#})
 
-
-#process.crawl(crawlmycrown)
-#process.start() # the script will block here until the crawling is finished
+process.crawl(crawlmycrown)
+process.start() # the script will block here until the crawling is finished
+'''
