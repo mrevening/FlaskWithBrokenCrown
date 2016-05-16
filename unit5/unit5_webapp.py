@@ -59,20 +59,17 @@ def show_result():
     os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
     with open('result.json') as data_file:
         data = json.load(data_file)
-        my_dict = {}
-        for x in data:
-            v1=x["type"]
-            v2=x["description"]
-            v3=x["count"]
-            v1 = " ".join(str(v) for v in v1)
-            v2 = " ".join(str(v) for v in v2)
-            v3 = " ".join(str(v) for v in v3)
-            key = (v1,v2)
-            value = v3
-            my_dict[key] = value
-        #pprint(my_dict)
 
+        gender = []
         age = []
+        ageonset = []
+        agediagnosis = []
+        durationms = []
+        edss = []
+        lastms = []
+        relapse12 = []
+        relapse24 = []
+
         for x in data:
             v1 = x["type"]
             v2 = x["description"]
@@ -80,15 +77,35 @@ def show_result():
             v1 = " ".join(str(v) for v in v1)
             v2 = " ".join(str(v) for v in v2)
             v3 = " ".join(str(v) for v in v3)
+            if v1 == "Distribution of gender":
+                gender.extend([[v2, int(v3)]])
             if v1 == "Age":
                 age.extend([[v2,int(v3)]])
+            if v1 == "Age at onset":
+                ageonset.extend([[v2,int(v3)]])
+            if v1 == "Age at diagnosis":
+                agediagnosis.extend([[v2, int(v3)]])
+            if v1 == "Duration of MS":
+                durationms.extend([[v2, int(v3)]])
+            if v1 == "EDSS at last visit":
+                edss.extend([[v2, int(v3)]])
+            if v1 == "Last MSCourse":
+                lastms.extend([[v2, int(v3)]])
+            if v1 == "Relapse count over last 12 months":
+                relapse12.extend([[v2, int(v3)]])
+            if v1 == "Relapse count over last 24 months":
+                relapse24.extend([[v2, int(v3)]])
 
-        pprint(age)
-        print (type(age))
-        return render_template('result.html', age=age)
+        my_dict={'gender': gender, 'age': age, 'ageonset':ageonset, 'agediagnosis': agediagnosis,'durationms':durationms, 'edss': edss,'lastms': lastms,'relapse12': relapse12,'relapse24':relapse24}
+
+       # return render_template('result.html', gender=gender, age=age,
+        #                       ageonset=ageonset, agediagnosis=agediagnosis, durationms=durationms,
+        #                        edss=edss, lastms=lastms, relapse12=relapse12, relapse24=relapse24)
+
+        return render_template('result.html', my_dict=my_dict)
 
    # male =[]
-    #pprint(data)
+
     #for el in data:
      #   male.append(el["plec"])
     #pprint (male)

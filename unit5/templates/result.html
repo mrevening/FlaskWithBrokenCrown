@@ -16,20 +16,20 @@
         var age = new google.visualization.DataTable();
         age.addColumn('string', 'Description');
         age.addColumn('number', 'Count');
-        age.addRows( {{age|tojson}} );
+        age.addRows( {{my_dict.age|tojson}} );
         var options = {
-        title: 'My Daily Activities'
+        title: 'Wiek'
         };
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(age, options);
+    function     
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(age, options);
     }
-
     </script>
   </head>
 <body>
 <!-- Identify where the chart should be drawn. -->
 
-<div id="piechart"></div>
+ <div id="piechart" style="width: 900px; height: 500px;"></div>
 </body>
 
 
