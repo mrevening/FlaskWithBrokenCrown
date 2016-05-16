@@ -65,17 +65,21 @@ def show_result():
 
     with open('result.json') as data_file:
         data = json.load(data_file)
-
-    my_dict = {}
-    for n in range(10):
-        for m in range(11):
-            key = (n, m)  # creates tuple
-            value = 'foobar'
+        my_dict = {}
+        for x in data:
+            v1=x["type"]
+            v2=x["description"]
+            v3=x["count"]
+            v1 = " ".join(str(v) for v in v1)
+            v2 = " ".join(str(v) for v in v2)
+            v3 = " ".join(str(v) for v in v3)
+            key = (v1,v2)
+            value = v3
             my_dict[key] = value
-    pprint(my_dict)
+        #pprint(my_dict)
 
 
-    male =[]
+   # male =[]
     #pprint(data)
     #for el in data:
      #   male.append(el["plec"])
