@@ -13,23 +13,49 @@
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart(){
+        var gender = new google.visualization.DataTable();
+        gender.addColumn('string', 'Description');
+        gender.addColumn('number', 'Count');
+        gender.addRows( {{my_dict.gender|tojson}} );
+        var options = {
+            title: 'Płeć'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('gender'));
+        chart.draw(gender, options);
+
         var age = new google.visualization.DataTable();
         age.addColumn('string', 'Description');
         age.addColumn('number', 'Count');
         age.addRows( {{my_dict.age|tojson}} );
         var options = {
-        title: 'Wiek'
+            title: 'Wiek'
         };
-    function     
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    chart.draw(age, options);
+        var chart = new google.visualization.PieChart(document.getElementById('age'));
+        chart.draw(age, options);
+
+        var ageonset = new google.visualization.DataTable();
+        ageonset.addColumn('string', 'Description');
+        ageonset.addColumn('number', 'Count');
+        ageonset.addRows( {{my_dict.ageonset|tojson}} );
+        var options = {
+            title: 'ageonset'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('ageonset'));
+        chart.draw(ageonset, options);
     }
+
     </script>
   </head>
 <body>
 <!-- Identify where the chart should be drawn. -->
+<table class="columns">
+    <tr>
+        <div id="gender" style="width: 900px; height: 500px;"></div>
+        <div id="age" style="width: 900px; height: 500px;"></div>
+        <div id="ageonset" style="width: 900px; height: 500px;"></div>
+    </tr>
+</table>
 
- <div id="piechart" style="width: 900px; height: 500px;"></div>
 </body>
 
 
