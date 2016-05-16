@@ -57,12 +57,6 @@ def show_raw():
 @app.route("/result")
 def show_result():
     os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
-  #  f = open('result.json', 'r')
-    #data = json.load(f)
-  #  pprint(data)
-    #dane['count']
-  #  f.close()
-
     with open('result.json') as data_file:
         data = json.load(data_file)
         my_dict = {}
@@ -78,6 +72,20 @@ def show_result():
             my_dict[key] = value
         #pprint(my_dict)
 
+        age = []
+        for x in data:
+            v1 = x["type"]
+            v2 = x["description"]
+            v3 = x["count"]
+            v1 = " ".join(str(v) for v in v1)
+            v2 = " ".join(str(v) for v in v2)
+            v3 = " ".join(str(v) for v in v3)
+            if v1 == "Age":
+                age.extend([[v2,int(v3)]])
+
+        pprint(age)
+        print (type(age))
+        return render_template('result.html', age=age)
 
    # male =[]
     #pprint(data)
@@ -97,25 +105,25 @@ def show_result():
 
 
 
-    fd_list = db.session.query(Formdata).all()
+#    fd_list = db.session.query(Formdata).all()
 
 
 
     # Some simple statistics for sample questions
-    plec = []
-    wiek = []
-    wiekonset = []
-    for el in fd_list:
-        plec.append(el.plec)
-        wiek.append(el.wiek)
-        wiekonset.append(el.wiekonset)
+  #  plec = []
+ #   wiek = []
+ #   wiekonset = []
+ #   for el in fd_list:
+ #       plec.append(el.plec)
+  #      wiek.append(el.wiek)
+  #      wiekonset.append(el.wiekonset)
 
 
 
     # Prepare data for google charts
-    data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
+  #  data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
 
-    return render_template('result.html', data=data)
+    #return render_template('result.html', data=data)
 
 
 @app.route("/save", methods=['POST'])
