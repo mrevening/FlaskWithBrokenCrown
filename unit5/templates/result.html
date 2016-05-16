@@ -10,39 +10,34 @@
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+
+
     google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart(){
-        var gender = new google.visualization.DataTable();
-        gender.addColumn('string', 'Description');
-        gender.addColumn('number', 'Count');
-        gender.addRows( {{my_dict.gender|tojson}} );
-        var options = {
-            title: 'Płeć'
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('gender'));
-        chart.draw(gender, options);
+    google.charts.setOnLoadCallback(drawCharts);
+    function drawCharts(){
+        function drawChart(x, name, id){
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Description');
+            data.addColumn('number', 'Count');
+            data.addRows( x );
+            var options = {
+                title: name
+            };
+            var chart = new google.visualization.PieChart(document.getElementById(id));
+            chart.draw(data, options);
+        }
+        drawChart({{my_dict.gender|tojson}}, 'Płeć', 'gender');
+        drawChart({{my_dict.age|tojson}}, "Wiek",'age');
+        drawChart({{my_dict.ageonset|tojson}}, "Wiek rozpoczecia choroby",'ageonset');
+        drawChart({{my_dict.agediagnosis|tojson}}, "Wiek diagnozy", 'agediagnosis');
+        drawChart({{my_dict.durationms|tojson}}, "Czas trwania choroby",'durationms');
+        drawChart({{my_dict.edss|tojson}}, "Ostatni wynik EDSS",'edss');
+        drawChart({{my_dict.lastms|tojson}}, "Ostatni kurs MS",'lastms');
+        drawChart({{my_dict.relapse12|tojson}}, "Liczba nawrotow w ostatnich 12 miesiacach",'relapse12');
+        drawChart({{my_dict.relapse24|tojson}}, "Liczba nawrotow w ostatnich 24 miesiacach",'relapse24');
 
-        var age = new google.visualization.DataTable();
-        age.addColumn('string', 'Description');
-        age.addColumn('number', 'Count');
-        age.addRows( {{my_dict.age|tojson}} );
-        var options = {
-            title: 'Wiek'
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('age'));
-        chart.draw(age, options);
-
-        var ageonset = new google.visualization.DataTable();
-        ageonset.addColumn('string', 'Description');
-        ageonset.addColumn('number', 'Count');
-        ageonset.addRows( {{my_dict.ageonset|tojson}} );
-        var options = {
-            title: 'ageonset'
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('ageonset'));
-        chart.draw(ageonset, options);
     }
+
 
     </script>
   </head>
@@ -53,6 +48,13 @@
         <div id="gender" style="width: 900px; height: 500px;"></div>
         <div id="age" style="width: 900px; height: 500px;"></div>
         <div id="ageonset" style="width: 900px; height: 500px;"></div>
+        <div id="agediagnosis" style="width: 900px; height: 500px;"></div>
+        <div id="durationms" style="width: 900px; height: 500px;"></div>
+        <div id="edss" style="width: 900px; height: 500px;"></div>
+        <div id="lastms" style="width: 900px; height: 500px;"></div>
+        <div id="relapse12" style="width: 900px; height: 500px;"></div>
+        <div id="relapse24" style="width: 900px; height: 500px;"></div>
+
     </tr>
 </table>
 
