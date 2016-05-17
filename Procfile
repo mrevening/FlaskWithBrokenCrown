@@ -1,0 +1,1 @@
+web: gunicorn nameapp:flaskwithbrokencrown --log-file -
