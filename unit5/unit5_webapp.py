@@ -1,6 +1,7 @@
 import os
 from pandas import json
 from pprint import pprint
+import pandas as pd
 
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
@@ -124,6 +125,21 @@ def show_results():
     fd_list = db.session.query(Formdata).all()
 
     # Some simple statistics for sample questions
+    id_name = 'ID'
+    plec_name = 'Plec'
+    wiek_name = 'Wiek'
+    wiekonset_name = 'Wiek rozpoczecia choroby'
+    wiekdiagnosis_name = 'Wiek diagnozy'
+    czastrwania_name = 'Czas trwania choroby'
+    edss_name = 'Ostatni wynik EDSS'
+    lastMS_name = 'Ostatni kurs MS'
+    nawrot12_name = 'Liczba nawrotow w ostatnich 12 miesiacach'
+    nawrot24_name = 'Liczba nawrotow w ostatnich 24 miesiacach'
+    
+    names = [id_name, plec_name, wiek_name, wiekonset_name, wiekdiagnosis_name,
+             czastrwania_name, edss_name, lastMS_name, nawrot12_name, nawrot24_name]
+
+
     id = []
     plec = []
     wiek = []
@@ -149,18 +165,9 @@ def show_results():
 
     #Prepare data for google charts
 
-    id_name = 'ID'
-    plec_name = 'Plec'
-    wiek_name ='Wiek'
-    wiekonset_name = 'Wiek rozpoczecia choroby'
-    wiekdiagnosis_name = 'Wiek diagnozy'
-    czastrwania_name =  'Czas trwania choroby'
-    edss_name =  'Ostatni wynik EDSS'
-    lastMS_name = 'Ostatni kurs MS'
-    nawrot12_name = 'Liczba nawrotow w ostatnich 12 miesiacach'
-    nawrot24_name = 'Liczba nawrotow w ostatnich 24 miesiacach'
 
-    x = {id_name: id,
+
+    dane = {id_name: id,
             plec_name: plec,
             wiek_name: wiek,
             wiekonset_name: wiekonset,
@@ -171,10 +178,18 @@ def show_results():
             nawrot12_name: nawrot12,
             nawrot24_name: nawrot24
             }
+    length = []
+    noduplicate =[]
+    for x in names:
+        noduplicate.append(list(set(dane[x])))
+    for x in range(0, len(noduplicate)):
+        length.append(len(noduplicate[x]))
+    print (noduplicate)
+    print (length)
 
     data = [
-        [id_name, x["Wiek"][1],1],
-        [id_name, x["Wiek"][2],1]
+        [id_name, dane["Wiek"][1],1],
+        [id_name, dane["Wiek"][2],1]
     ]
     return render_template('results.html', data=data)
 
@@ -206,5 +221,5 @@ def save():
 
 
 if __name__ == "__main__":
-    app.debug = False
+    app.debug = True
     app.run()
