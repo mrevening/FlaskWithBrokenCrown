@@ -6,6 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="dirbot5" />
     <orderEntry type="module" module-name="flask-json" />
+    <orderEntry type="module" module-name="MirrorWeb" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Nosetests" />
