@@ -97,50 +97,27 @@ def show_result():
                 relapse24.extend([[v2, int(v3)]])
 
         my_dict={'gender': gender, 'age': age, 'ageonset':ageonset, 'agediagnosis': agediagnosis,'durationms':durationms, 'edss': edss,'lastms': lastms,'relapse12': relapse12,'relapse24':relapse24}
-
-       # return render_template('result.html', gender=gender, age=age,
-        #                       ageonset=ageonset, agediagnosis=agediagnosis, durationms=durationms,
-        #                        edss=edss, lastms=lastms, relapse12=relapse12, relapse24=relapse24)
-
         return render_template('result.html', my_dict=my_dict)
 
-   # male =[]
-
-    #for el in data:
-     #   male.append(el["plec"])
-    #pprint (male)
- #   plec = []
-
-  #  for el in dane:
-  #      satisfaction.append(int(el['Male']))
-  #      q1.append(int(el.q1))
- #       q2.append(int(el.q2))
-
- #   data = [['Satisfaction', mean_satisfaction], ['Python skill', mean_q1], ['Flask skill', mean_q2]]
-
-  #  return render_template('result.html', data=data)
-
-
-
-#    fd_list = db.session.query(Formdata).all()
-
-
+@app.route("/this_result")
+def show_this_result():
+    fd_list = db.session.query(Formdata).all()
 
     # Some simple statistics for sample questions
-  #  plec = []
- #   wiek = []
- #   wiekonset = []
- #   for el in fd_list:
- #       plec.append(el.plec)
-  #      wiek.append(el.wiek)
-  #      wiekonset.append(el.wiekonset)
+    plec = []
+    wiek = []
+    wiekonset = []
+    for el in fd_list:
+        plec.append(el.plec)
+        wiek.append(el.wiek)
+        wiekonset.append(el.wiekonset)
 
 
 
-    # Prepare data for google charts
-  #  data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
-
-    #return render_template('result.html', data=data)
+    #Prepare data for google charts
+    data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
+    pprint(data)
+    return render_template('this_result.html', data=data)
 
 
 @app.route("/save", methods=['POST'])
