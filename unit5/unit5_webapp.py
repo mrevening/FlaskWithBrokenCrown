@@ -119,6 +119,65 @@ def show_this_result():
     pprint(data)
     return render_template('this_result.html', data=data)
 
+@app.route("/results")
+def show_results():
+    fd_list = db.session.query(Formdata).all()
+
+    # Some simple statistics for sample questions
+    id = []
+    plec = []
+    wiek = []
+    wiekonset = []
+    wiekdiagnosis = []
+    czastrwania = []
+    edss = []
+    lastMS = []
+    nawrot12 = []
+    nawrot24 = []
+    for el in fd_list:
+        id.append(el.id)
+        plec.append(el.plec)
+        wiek.append(el.wiek)
+        wiekonset.append(el.wiekonset)
+        wiekdiagnosis.append(el.wiekdiagnosis)
+        czastrwania.append(el.czastrwania)
+        edss.append(el.edss)
+        lastMS.append(el.lastMS)
+        nawrot12.append(el.nawrot12)
+        nawrot24.append(el.nawrot24)
+
+
+    #Prepare data for google charts
+
+    id_name = 'ID'
+    plec_name = 'Plec'
+    wiek_name ='Wiek'
+    wiekonset_name = 'Wiek rozpoczecia choroby'
+    wiekdiagnosis_name = 'Wiek diagnozy'
+    czastrwania_name =  'Czas trwania choroby'
+    edss_name =  'Ostatni wynik EDSS'
+    lastMS_name = 'Ostatni kurs MS'
+    nawrot12_name = 'Liczba nawrotow w ostatnich 12 miesiacach'
+    nawrot24_name = 'Liczba nawrotow w ostatnich 24 miesiacach'
+
+    x = {id_name: id,
+            plec_name: plec,
+            wiek_name: wiek,
+            wiekonset_name: wiekonset,
+            wiekdiagnosis_name: wiekdiagnosis,
+            czastrwania_name: czastrwania,
+            edss_name: edss,
+            lastMS_name: lastMS,
+            nawrot12_name: nawrot12,
+            nawrot24_name: nawrot24
+            }
+
+    data = [
+        [id_name, x["Wiek"][1],1],
+        [id_name, x["Wiek"][2],1]
+    ]
+    return render_template('results.html', data=data)
+
 
 @app.route("/save", methods=['POST'])
 def save():
