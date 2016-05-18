@@ -70,10 +70,22 @@
        <!--[ 'Morocco', 'Japan', 3 ]-->
     <!--]-->
     );
+   var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+              '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
 
     // Set chart options
     var options = {
-      width: 600,
+      height: 600,
+      sankey: {
+        node: {
+          colors: colors
+        },
+        link: {
+          colorMode: 'gradient',
+          colors: colors
+        }
+      }
+
     };
 
     // Instantiate and draw our chart, passing in some options.
