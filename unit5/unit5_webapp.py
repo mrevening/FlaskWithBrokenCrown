@@ -124,7 +124,6 @@ def show_this_result():
 def show_results():
     fd_list = db.session.query(Formdata).all()
 
-    # Some simple statistics for sample questions
     id_name = 'ID'
     plec_name = 'Plec'
     wiek_name = 'Wiek'
@@ -135,12 +134,11 @@ def show_results():
     lastMS_name = 'Ostatni kurs MS'
     nawrot12_name = 'Liczba nawrotow w ostatnich 12 miesiacach'
     nawrot24_name = 'Liczba nawrotow w ostatnich 24 miesiacach'
-    
-    names = [id_name, plec_name, wiek_name, wiekonset_name, wiekdiagnosis_name,
+
+    tableNames = [id_name, plec_name, wiek_name, wiekonset_name, wiekdiagnosis_name,
              czastrwania_name, edss_name, lastMS_name, nawrot12_name, nawrot24_name]
 
-
-    id = []
+    ID = []
     plec = []
     wiek = []
     wiekonset = []
@@ -151,23 +149,18 @@ def show_results():
     nawrot12 = []
     nawrot24 = []
     for el in fd_list:
-        id.append(el.id)
-        plec.append(el.plec)
-        wiek.append(el.wiek)
-        wiekonset.append(el.wiekonset)
-        wiekdiagnosis.append(el.wiekdiagnosis)
-        czastrwania.append(el.czastrwania)
-        edss.append(el.edss)
-        lastMS.append(el.lastMS)
-        nawrot12.append(el.nawrot12)
-        nawrot24.append(el.nawrot24)
+        ID.append(str(el.id))
+        plec.append(str(el.plec))
+        wiek.append(str(el.wiek))
+        wiekonset.append(str(el.wiekonset))
+        wiekdiagnosis.append(str(el.wiekdiagnosis))
+        czastrwania.append(str(el.czastrwania))
+        edss.append(str(el.edss))
+        lastMS.append(str(el.lastMS))
+        nawrot12.append(str(el.nawrot12))
+        nawrot24.append(str(el.nawrot24))
 
-
-    #Prepare data for google charts
-
-
-
-    dane = {id_name: id,
+    dane = {id_name: ID,
             plec_name: plec,
             wiek_name: wiek,
             wiekonset_name: wiekonset,
@@ -178,22 +171,77 @@ def show_results():
             nawrot12_name: nawrot12,
             nawrot24_name: nawrot24
             }
-    length = []
-    noduplicate =[]
-    for x in names:
-        noduplicate.append(list(set(dane[x])))
-    for x in range(0, len(noduplicate)):
-        length.append(len(noduplicate[x]))
-    print (noduplicate)
-    print (length)
+    data =[]
+    j = 1
+    for x in tableNames:
+        index = str(j)+") "
+        for i in range(0,len(dane[x])):
+            v = [index+x,index+str(dane[x][i]),1]
+            data.append(v)
+        j += 1
 
-    data = [
-        [id_name, dane["Wiek"][1],1],
-        [id_name, dane["Wiek"][2],1]
-    ]
+    print (dane)
+
+
+    # dane_noduplicate = {}
+    # dane_noduplicate.fromkeys(dane.keys(), [])
+    # # for x in tableNames:
+    # #     # dane_noduplicate[x].append(None)
+    # #     dane_noduplicate[x].apend(list(set(dane[x])))
+    #
+    # # for x in tableNames:
+    # #     dane_noduplicate.append(list(set(dane[x])))
+    # print (dane_noduplicate)
+
+
+
+    # data = [
+    #     ["1) Distribution of gender","1) Female",1],
+    #     ["1) Distribution of gender", "1) Male",1],
+    #     ["2) Age", "2) < 20", 1],
+    #     ["2) Age", "2) 20-29", 1],
+    #     ["1) Female", "ID 1" ,1],
+    #     ["1) Male","ID 2",1],
+    #     ["2) < 20","ID 1",1],
+    #     ["2) 20-29", "ID 2", 1],
+    #     ["3) 0.0","3) Ostatni wynik EDSS",1],
+    #     ["3) 1.0", "3) Ostatni wynik EDSS", 1],
+    #     ["ID 1","3) 0.0",1],
+    #     ["ID 2","3) 1.0",1],
+    #     ["4) RR", "4) Last MSCourse",1],
+    #     ["4) SP", "4) Last MSCourse",1],
+    #     ["ID 1", "4) RR", 1],
+    #     ["ID 2", "4) SP", 1],
+    #     ]
+
+
+
+
+    # for x in tableNames:
+    #     licznik = 0
+    #     for y in range(0,len(dane_noduplicate[licznik])):
+    #         data.append[dane_noduplicate[x][y]]
+    #         licznik +=1
+
+
+
     return render_template('results.html', data=data)
 
 
+
+
+
+
+
+
+
+
+
+
+
+# [id_name, dane[id_name][1], 1],
+# [id_name, dane[id_name][2], 1],
+# [wiek_name, dane[wiek_name][1], 1],]
 @app.route("/save", methods=['POST'])
 def save():
     # Get data from FORM
