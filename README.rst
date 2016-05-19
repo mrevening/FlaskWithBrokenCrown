@@ -20,6 +20,7 @@ Umożliwia:
 
 Projek wykorzystywany tylko do celów edukacyjnych
 
+Wymagany python 2.7 (Anaconda)
 
 Wykorzystane zasoby
 =====
