@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="003dccf7-32ad-47c1-8b95-9a438179f7b1" name="Default" comment="Cleaning">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Procfile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ProcfileOld.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dirbot/spiders/crawlmycrown.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dirbot/spiders/result.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gettingstarted/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gettingstarted/settings.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gettingstarted/static/humans.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gettingstarted/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gettingstarted/wsgi.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/static/lang-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/templates/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/templates/db.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manage.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/result.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unit5/templates/this_result.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/README.rst" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/unit5/result.json" afterPath="$PROJECT_DIR$/unit5/przykladowy_plik_nie_wykorzystywany.json" />
+    <list default="true" id="003dccf7-32ad-47c1-8b95-9a438179f7b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dirbot/spiders/crawlmycrownspider.py" afterPath="$PROJECT_DIR$/dirbot/spiders/crawlmycrownspider.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unit5/templates/base.html" afterPath="$PROJECT_DIR$/unit5/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unit5/templates/welcome.html" afterPath="$PROJECT_DIR$/unit5/templates/welcome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unit5/unit5_webapp.py" afterPath="$PROJECT_DIR$/unit5/unit5_webapp.py" />
     </list>
     <ignored path="FlaskWithBrokenCrown.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,11 +53,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unit5/templates/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-24">
               <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-117">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -152,11 +131,11 @@
         <option value="$USER_HOME$/python-getting-started/hello/views.py" />
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/unit5/templates/base.html" />
         <option value="$PROJECT_DIR$/unit5/unit5_webapp.py" />
         <option value="$PROJECT_DIR$/dirbot/spiders/crawlmycrownspider.py" />
         <option value="$PROJECT_DIR$/unit5/templates/welcome.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -686,7 +665,21 @@
       <option name="project" value="LOCAL" />
       <updated>1463683281459</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Cleaning">
+      <created>1463686020857</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1463686020857</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Cleaning">
+      <created>1463686357455</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1463686357455</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -700,7 +693,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.48608837" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -709,7 +702,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32352942" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26022914" sideWeight="0.4955357" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32242227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32242227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5139116" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41080198" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -753,7 +746,8 @@
     <MESSAGE value="Merge branch 'FlaskGrafsk'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
     <MESSAGE value="Update readme&#10;" />
     <MESSAGE value="Heroku deployed app - works!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Heroku deployed app - works!" />
+    <MESSAGE value="Cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1101,14 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unit5/unit5_webapp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1137,6 +1123,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-24">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding />
         </state>
       </provider>
