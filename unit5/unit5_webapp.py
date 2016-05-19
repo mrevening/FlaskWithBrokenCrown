@@ -2,6 +2,7 @@ import os
 from pandas import json
 from pprint import pprint
 import pandas as pd
+from subprocess import call
 
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
@@ -57,7 +58,10 @@ def show_raw():
 
 @app.route("/result")
 def show_result():
-    os.system("python ..\dirbot\spiders\crawlmycrown.py 1")
+    print ("before")
+    os.system("python ../dirbot/spiders/crawlmycrownspider.py 1")
+    print ("after")
+    # call(['python ../dirbot/spiders/crawlmycrownspider.py shell=True'])
     with open('result.json') as data_file:
         data = json.load(data_file)
 
@@ -117,7 +121,7 @@ def show_this_result():
 
     #Prepare data for google charts
     data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
-    pprint(data)
+    # pprint(data)
     return render_template('this_result.html', data=data)
 
 @app.route("/results")
@@ -279,5 +283,9 @@ def save():
 
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()
+    # app.debug = True
+    # app.run()
+
+    app.debug = False
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
