@@ -29,27 +29,6 @@ Wykorzystane zasoby
 -Sqlite - Baza danych
 -Google charts - Tworzenie wykresów
 
-The items scraped by this project are websites, and the item is defined in the
-class::
-
-    dirbot.items.Website
-
-See the source code for more details.
-
-Zakładka "Wyniki MSBase"
-=======
-
-Umożliwia crawling danych z witryny: https://www.msbase.org/cms/benchmarking.json
-i przedstawienie wyników za pomocą piechart: https://developers.google.com/chart/interactive/docs/gallery/piechart
-
-Ta witryna może ładować się dłużej niż pozostałe.
-
-Spider: crawlmycrown.py
-------------
-W folderze dirbot/spiders znajduje się spider który pobiera informacje zawarte między znacznikami html
-z ogólnie dostępnego projektu MSBase (https://www.msbase.org/cms/benchmarking.json).
-W tym przypadku są to statystyki użytkowników tego rejestru chorych na stwardnienie rozsiane.
-
 Zakładka "Formularz"
 =========
 
@@ -61,7 +40,18 @@ Zakładka "Surowe dane"
 
 Przedstawienie wyników zgromadzonych w formularzu.
 
+Zakładka "Wyniki MSBase"
+=======
+
+Umożliwia crawling danych z witryny: https://www.msbase.org/cms/benchmarking.json
+i przedstawienie wyników za pomocą piechart: https://developers.google.com/chart/interactive/docs/gallery/piechart
+
+Ta witryna może ładować się dłużej niż pozostałe.
+
 Zakładka "Graf pasywny bazy danych"
 =========
 
-
+Dla celów projektu z "Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych" powstała grafowa struktura AGDS
+pozwalająca uzyskać szybki dostęp do danych.
+Za oprawę graficzną odpowiada diagram sankey: https://developers.google.com/chart/interactive/docs/gallery/sankey
+Reprezentowane są dane z wypełnionego formularza.
