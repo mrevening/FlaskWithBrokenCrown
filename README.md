@@ -74,4 +74,3 @@ Dla celów projektu z "Asocjacyjne obliczenia w sztucznych systemach skojarzenio
 pozwalająca uzyskać szybki dostęp do danych.
 Za oprawę graficzną odpowiada diagram sankey: https://developers.google.com/chart/interactive/docs/gallery/sankey
 Reprezentowane dane pochodzą z wypełnionego formularza.
-

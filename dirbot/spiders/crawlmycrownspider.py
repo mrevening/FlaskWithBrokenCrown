@@ -3,6 +3,8 @@ from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy.utils.project import get_project_settings
 
+# from dirbot import settings
+# from dirbot.items import Nazwy
 from scrapy.item import Item, Field
 
 

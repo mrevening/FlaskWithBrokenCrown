@@ -10,6 +10,7 @@ from datetime import datetime
 import statistics
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True'
 
@@ -103,7 +104,25 @@ def show_result():
         my_dict={'gender': gender, 'age': age, 'ageonset':ageonset, 'agediagnosis': agediagnosis,'durationms':durationms, 'edss': edss,'lastms': lastms,'relapse12': relapse12,'relapse24':relapse24}
         return render_template('result.html', my_dict=my_dict)
 
+@app.route("/this_result")
+def show_this_result():
+    fd_list = db.session.query(Formdata).all()
 
+    # Some simple statistics for sample questions
+    plec = []
+    wiek = []
+    wiekonset = []
+    for el in fd_list:
+        plec.append(el.plec)
+        wiek.append(el.wiek)
+        wiekonset.append(el.wiekonset)
+
+
+
+    #Prepare data for google charts
+    data = [['Plec', plec], ['Wiek', wiek], ['Wiek rozpoczecia choroby', wiekonset]]
+    # pprint(data)
+    return render_template('this_result.html', data=data)
 
 @app.route("/results")
 def show_results():
@@ -173,8 +192,70 @@ def show_results():
                 data.append(w)
         j += 1
 
+
+
+    print (dane)
+
+
+    # dane_noduplicate = {}
+    # dane_noduplicate.fromkeys(dane.keys(), [])
+    # # for x in tableNames:
+    # #     # dane_noduplicate[x].append(None)
+    # #     dane_noduplicate[x].apend(list(set(dane[x])))
+    #
+    # # for x in tableNames:
+    # #     dane_noduplicate.append(list(set(dane[x])))
+    # print (dane_noduplicate)
+
+
+
+    # data = [
+    #     ["1) Distribution of gender","1) Female",1],
+    #     ["1) Distribution of gender", "1) Male",1],
+    #     ["2) Age", "2) < 20", 1],
+    #     ["2) Age", "2) 20-29", 1],
+    #     ["1) Female", "ID 1" ,1],
+    #     ["1) Male","ID 2",1],
+    #     ["2) < 20","ID 1",1],
+    #     ["2) 20-29", "ID 2", 1],
+    #     ["3) 0.0","3) Ostatni wynik EDSS",1],
+    #     ["3) 1.0", "3) Ostatni wynik EDSS", 1],
+    #     ["ID 1","3) 0.0",1],
+    #     ["ID 2","3) 1.0",1],
+    #     ["4) RR", "4) Last MSCourse",1],
+    #     ["4) SP", "4) Last MSCourse",1],
+    #     ["ID 1", "4) RR", 1],
+    #     ["ID 2", "4) SP", 1],
+    #     ]
+
+
+
+
+    # for x in tableNames:
+    #     licznik = 0
+    #     for y in range(0,len(dane_noduplicate[licznik])):
+    #         data.append[dane_noduplicate[x][y]]
+    #         licznik +=1
+
+
+
     return render_template('results.html', data=data)
 
+
+
+
+
+
+
+
+
+
+
+
+
+# [id_name, dane[id_name][1], 1],
+# [id_name, dane[id_name][2], 1],
+# [wiek_name, dane[wiek_name][1], 1],]
 @app.route("/save", methods=['POST'])
 def save():
     # Get data from FORM
@@ -195,6 +276,11 @@ def save():
     db.session.commit()
 
     return redirect('/')
+
+#@app.route("/crawler")
+#def runcrawler
+
+
 
 if __name__ == "__main__":
     # app.debug = True

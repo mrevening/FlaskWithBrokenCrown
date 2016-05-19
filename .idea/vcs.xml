@@ -6,6 +6,7 @@
     <mapping directory="$PROJECT_DIR$/../dirbot4" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../dirbot5" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../flask-json" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python-getting-started" vcs="Git" />
     <mapping directory="$USER_HOME$/python-getting-started" vcs="Git" />
   </component>
 </project>
