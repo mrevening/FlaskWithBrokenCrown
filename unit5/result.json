@@ -1,5 +1,4 @@
-[
-{"count": ["27661"], "type": ["Distribution of gender"], "description": ["Female"]},
+[{"count": ["27661"], "type": ["Distribution of gender"], "description": ["Female"]},
 {"count": ["11355"], "type": ["Distribution of gender"], "description": ["Male"]},
 {"count": ["589"], "type": ["Age"], "description": ["< 20"]},
 {"count": ["4824"], "type": ["Age"], "description": ["20-29"]},
@@ -82,5 +81,4 @@
 {"count": ["16"], "type": ["Relapse count over last 24 months"], "description": ["7"]},
 {"count": ["7"], "type": ["Relapse count over last 24 months"], "description": ["8"]},
 {"count": ["2"], "type": ["Relapse count over last 24 months"], "description": [">9"]},
-{"count": ["953"], "type": ["Relapse count over last 24 months"], "description": ["NA"]}
-]
+{"count": ["953"], "type": ["Relapse count over last 24 months"], "description": ["NA"]}]

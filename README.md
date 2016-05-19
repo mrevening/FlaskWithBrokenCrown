@@ -1,44 +1,78 @@
-# python-getting-started
+======
+Dominik Wieczorek
+Inżynieria Biomedyczna, specjalność: Informatyka i Elektronika Medyczna
+Semestr X
+Projekt realizujący materiał z:
+**Eksploracja danych i głosowa łączność z komputerem**
+&
+**Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych**
 
-A barebones Python app, which can easily be deployed to Heroku.
+Opis
+==============
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+Projekt zawiera aplikację webową, w której zawarte są materiały do obu projektów, ponieważ materiał
+częściowo się pokrywał.
 
-## Running Locally
+Pliki źródłowe projektu są zamieszczone w repozytorium https://github.com/mrevening/FlaskWithBrokenCrown
+W gałęzi *Heroku* znajdują się pliki wrzucone na serwer, więc powinny być najbardziej aktualne.
+Applikacja została wrzucona na serwer https://flaskwithbrokencrown.herokuapp.com/result
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+Dla przedmiotu **Eksploracja danych** przeznacznone z menu głównego aplikacji przeznaczone są:
+- Formularz
+- Surowe dane
+- Wyniki MSBase
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+Do przedmiotu **Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych** należy zakładka:
+- Formularz (do generownia nowych rekordów)
+- Graf bazy danych
 
-$ pip install -r requirements.txt
+Projek wykorzystywany tylko do celów edukacyjnych.
 
-$ createdb python_getting_started
+Wymagania systemowe
+==============
+- środowisko programistyczne (np. PyCharm Community Edition 2015.1.3)
+- python 2.7 (polecany zbiór bibliotek oferowany przez Anaconda - https://www.continuum.io/downloads)
+- reszta wymagań znajduje się w pliku requirements.txt
 
-$ python manage.py migrate
-$ python manage.py collectstatic
+Wykorzystane zasoby (frameworki, biblioteki...)
+==============
 
-$ heroku local
-```
+-Scrapy - przeszukiwanie treści na witrynach internetowych
+-Flask - Web Server Gateway Interface
+-Sqlite - Baza danych
+-Google charts - Tworzenie wykresów
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+Opis zawartości
+==============
+Zakładka "Formularz"
+--------------
 
-```sh
-$ heroku create
-$ git push heroku master
+Na tej stronie można uzupełnić formularz. Rodzaj gromadzonych danych pokrywa się z danymi prezentowanymi przez
+rejestr MSBase.org Dane gromadzone są w bazie sqlite w pliku formdata.db
 
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
+Zakładka "Surowe dane"
+--------------
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Przedstawienie wyników zgromadzonych w formularzu.
 
-## Documentation
+Zakładka Wyniki MSBase
+--------------
+Przedstawia w postaci wykresów (wykorzystane google charts) dane zebrane przy pomocy spidera.
 
-For more information about using Python on Heroku, see these Dev Center articles:
+Opis czynności skryptu:
+-crawling danych z witryny: https://www.msbase.org/cms/benchmarking.json
+    Dane te są pobierane na bieżąco z docelowej witryny, a dane gromadzone w postaci pliku json
+    Za te operacje odpowiada moduł *dirbot*
+-przekonwertowanie zebranych danych do postaci akceptowalnej przez wykresy google (moduł *unit5*)
+-przedstawienie zgromadzonych wyników za pomocą piechart:
+    https://developers.google.com/chart/interactive/docs/gallery/piechart
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+Zakładka "Graf pasywny bazy danych"
+--------------
+
+Dla celów projektu z "Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych" powstała grafowa struktura AGDS
+pozwalająca uzyskać szybki dostęp do danych.
+Za oprawę graficzną odpowiada diagram sankey: https://developers.google.com/chart/interactive/docs/gallery/sankey
+Reprezentowane dane pochodzą z wypełnionego formularza.
+
