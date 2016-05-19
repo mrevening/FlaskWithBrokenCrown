@@ -1,11 +1,11 @@
 ======
-Dominik Wieczorek
-Inżynieria Biomedyczna, specjalność: Informatyka i Elektronika Medyczna
-Semestr X
-Projekt realizujący materiał z:
-**Eksploracja danych i głosowa łączność z komputerem**
-&
-**Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych**
+- Dominik Wieczorek
+- Inżynieria Biomedyczna, specjalność: Informatyka i Elektronika Medyczna
+- Semestr X
+- Projekt realizujący materiał z:
+ -**Eksploracja danych i głosowa łączność z komputerem**
+- &
+- **Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych**
 
 Opis
 ==============
@@ -17,7 +17,7 @@ Pliki źródłowe projektu są zamieszczone w repozytorium https://github.com/mr
 W gałęzi *Heroku* znajdują się pliki wrzucone na serwer, więc powinny być najbardziej aktualne.
 Applikacja została wrzucona na serwer https://flaskwithbrokencrown.herokuapp.com/result
 
-Dla przedmiotu **Eksploracja danych** przeznacznone z menu głównego aplikacji przeznaczone są:
+Dla przedmiotu **Eksploracja danych** z menu głównego aplikacji przeznaczone są:
 - Formularz
 - Surowe dane
 - Wyniki MSBase
@@ -26,7 +26,6 @@ Do przedmiotu **Asocjacyjne obliczenia w sztucznych systemach skojarzeniowych** 
 - Formularz (do generownia nowych rekordów)
 - Graf bazy danych
 
-Projek wykorzystywany tylko do celów edukacyjnych.
 
 Wymagania systemowe
 ==============
@@ -37,10 +36,10 @@ Wymagania systemowe
 Wykorzystane zasoby (frameworki, biblioteki...)
 ==============
 
--Scrapy - przeszukiwanie treści na witrynach internetowych
--Flask - Web Server Gateway Interface
--Sqlite - Baza danych
--Google charts - Tworzenie wykresów
+- Scrapy - przeszukiwanie treści na witrynach internetowych
+- Flask - Web Server Gateway Interface
+- Sqlite - Baza danych
+- Google charts - Tworzenie wykresów
 
 
 Opis zawartości
