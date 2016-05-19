@@ -2,4 +2,3 @@ Flask==0.10.1
 Flask-SQLAlchemy==2.1
 Scrapy==1.1.0rc4
 SQLAlchemy==1.0.11
-SQlite==3.13.0
