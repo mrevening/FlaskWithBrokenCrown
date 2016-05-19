@@ -1,4 +1,8 @@
 Flask==0.10.1
+Scrapy==1.0.6
+cffi==1.6.0
 Flask-SQLAlchemy==2.1
-Scrapy==1.1.0rc4
 SQLAlchemy==1.0.11
+pandas==0.18.1
+statistics==1.0.3.5
+

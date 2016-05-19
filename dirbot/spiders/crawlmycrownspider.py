@@ -3,16 +3,21 @@ from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy.utils.project import get_project_settings
 
-from dirbot import settings
-from dirbot.items import Website
+from scrapy.item import Item, Field
 
 
+class Nazwy(Item):
+    description = Field()
+    type = Field()
+    count = Field()
 
 
-class crawlmycrown(Spider):
-    name = "crawlmycrown"
+class crawlmycrownspider(Spider):
+    name = "crawlmycrownspider"
     allowed_domains = ["msbase.org"]
     start_urls = ['https://www.msbase.org/cms/benchmarking.json']
+
+
 
     def parse(self, response):
         sel = Selector(response)
@@ -22,7 +27,7 @@ class crawlmycrown(Spider):
         open('result.json', 'w').close()
         n=1
         for data in labels:
-            item = Website()
+            item = Nazwy()
             item['type'] = data.xpath('th[@style="font-weight: bold; text-align:left; padding:5px; font-size:11px;"]/text()').extract()
             item['count'] = data.xpath('td[2]/text()').extract()
             if item['count'] != []:
@@ -43,5 +48,5 @@ process = CrawlerProcess({
 })
 
 
-process.crawl(crawlmycrown)
+process.crawl(crawlmycrownspider)
 process.start() # the script will block here until the crawling is finished
