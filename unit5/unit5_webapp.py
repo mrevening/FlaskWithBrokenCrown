@@ -176,10 +176,16 @@ def show_results():
     for x in tableNames:
         index = str(j)+") "
         for i in range(0,len(dane[x])):
-            v = [index+x,index+x+" - "+str(dane[x][i]), 1]
-            data.append(v)
-            w = [index+x+" - "+str(dane[x][i]), "Pacjent "+ str(dane["ID"][i]), 1]
-            data.append(w)
+            if j%2 == 1:
+                v = [index+x,index+x+" - "+str(dane[x][i]), 1]
+                data.append(v)
+                w = [index+x+" - "+str(dane[x][i]), "Pacjent "+ str(dane["ID"][i]), 1]
+                data.append(w)
+            else:
+                v = [index + x + " - " + str(dane[x][i]), index + x, 1]
+                data.append(v)
+                w = ["Pacjent " + str(dane["ID"][i]), index + x + " - " + str(dane[x][i]), 1]
+                data.append(w)
         j += 1
 
 
